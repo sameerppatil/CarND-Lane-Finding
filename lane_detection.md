@@ -1,17 +1,15 @@
-# **Udacity Self Driving Project 1: Finding Lane Lines on the Road** 
-
-## Project 1 Writeup
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
+# Project 1 writeup: Finding Lane Lines on the Road
 
 ---
+**Project Objective**
+* In this project, we aim to find lane lines from images and videos
+* We define a pipeline using sample images and extend that functionality towards videos
 
-**Finding Lane Lines on the Road**
-
-The documents aims to address following aspects of project design:
-* Design of pipeline detailing each step
-* Use cases where this pipeline might fail
-* Further improvements possible
+**Document objective**
+In this document, we address discuss about aspects of project design considered during implementation.
+* How the pipeline is implemented?
+* What aspects of input data influence design decision?
+* In what scenarios, the pipeline would fall short of accurately finding lane lines.
 
 [//]: # (Image References)
 
@@ -21,26 +19,27 @@ The documents aims to address following aspects of project design:
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+The project makes heavy use of skeletion code provided in 'Finding lane lines'.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
+### 1. Step-by-step pipeline implementation
+1. Read input image
+2. Convert image to grayscale. Converting images to grayscale helps lowering the complexity associated with dealing color images. With respect to the goal of this project, color related information may not be vital for detecting edges on road
+3. Applying Gaussian blur to reduce the image noise and smoothen the image.
+4. Apply Canny Edge detection to the output of Gaussian blur. This step will produce image consisting of edge which looks something like below. (INSERT IMAGE HERE)
+5. Create a mask to extract areas which are of only intereset for finding edges.
+6. Apply the region of interest mask to extract masked edges
+7. Apply Hough transform to extract identiy lines of specific type from input image. For values of rho (distance) and theta (angular resolution), we started off with value of 1 for each of them and kept them tuning until we got expected results.
+8. As intermediate step in Hough Transform, we extend the functionality from draw_lines() API.
 ![alt text][image1]
 
 
-### 2. Identify potential shortcomings with your current pipeline
+### 2. Potential shortcomings with your current approach
 
-
-One potential shortcoming would be what would happen when ... 
+One potential shortcoming would be what would happen when ...
 
 Another shortcoming could be ...
 
-
-### 3. Suggest possible improvements to your pipeline
+### 3. Possible improvements
 
 A possible improvement would be to ...
 
