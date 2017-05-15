@@ -47,15 +47,12 @@ The project makes heavy use of skeleton code provided in 'Finding lane lines'.
 - Now, using y (max and min), avg. slope, and avg. intercept, we find two values of x'es. Now, using this combination of x1, y1, and x2, y2, we plot continues lines and extend the lines calculated by Hough Transform.
 ![Extrapolated lane lines][image3]
 
-
 ### 2. Potential shortcomings with your current approach
-
-One potential shortcoming would be what would happen when ...
-
-Another shortcoming could be ...
+- The above pipeline may not work for advanced scenarios where lanes lines are not strictly straight i.e. lane lines are curved
+- This pipeline can be error prone when the input images are distorted near edges.
+- Whenever this pipeline is fed input from camera with different viewing angle and location, the results will be error-prone.
 
 ### 3. Possible improvements
-
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
+- Improve the image distortion using techniques for getting undistorted images
+- Improve algorithm to detect lane curvatures
+- Improve support for camera inputs of different perspectives (shortcoming #3) by using perspective transform
