@@ -13,9 +13,9 @@ In this document, we address discuss about aspects of project design considered 
 
 [//]: # (Image References)
 
-[image1]: ./examples/my_grayscale.jpg "Grayscale"
-[image2]: ./examples/my_canny.jpg "Canny Edges"
-[image3]: ./examples/my_lines.jpg "Lane lines"
+[image1]: ./examples/my_grayscale.png "Grayscale"
+[image2]: ./examples/my_canny.png "Canny Edges"
+[image3]: ./examples/my_lines.png "Lane lines"
 
 ---
 
